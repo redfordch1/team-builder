@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import data from "./Data";
-import MembersList from "./components/Members";
-import Form from "./components/Members";
+import MembersList from "./components/MembersList";
+import Form from "./components/Form";
 
 function App() {
 	const [ members, setMembers ] = useState([]);
@@ -12,7 +12,7 @@ function App() {
 	}, []);
 
 	const addTeamMember = (person) => {
-		const newMember = setMembers([ ...members, person ]);
+		setMembers([ ...members, person ]);
 	};
 
 	return (
