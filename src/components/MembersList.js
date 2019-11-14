@@ -1,6 +1,6 @@
 import React from "react";
 
-const Members = (props) => {
+const MembersList = (props) => {
 	return (
 		<div>
 			<h1>{props.info.name}</h1>
@@ -10,4 +10,4 @@ const Members = (props) => {
 	);
 };
 
-export default Members;
+export default MembersList;

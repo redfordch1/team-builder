@@ -1,31 +1,25 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import data from "./components/Data";
-import Members from "./components/Data";
-import Form from "./components/Data";
+import data from "./Data";
+import MembersList from "./components/Members";
+import Form from "./components/Members";
 
 function App() {
-	const [ member, setMember ] = useState([]);
+	const [ members, setMembers ] = useState([]);
 
 	useEffect(() => {
-		setMember(data);
+		setMembers(data);
 	}, []);
 
 	const addTeamMember = (person) => {
-		const newMember = {
-			id: Date.now(),
-			name: person.name,
-			role: person.role,
-			email: person.email
-		};
-		setMember([ ...member, newMember ]);
+		const newMember = setMembers([ ...members, person ]);
 	};
 
 	return (
-		<div>
+		<div className="App">
 			<Form addTeamMember={addTeamMember} />
-			{member.map((m) => {
-				return <Members key={m.id} info={m} />;
+			{members.map((m) => {
+				return <MembersList key={m.id} info={m} />;
 			})}
 		</div>
 	);
